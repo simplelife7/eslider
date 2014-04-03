@@ -58,7 +58,6 @@
                 $nextBtn = '';
             }
 
-
             this.imgList = $imgList,
             this.imgItems = $imgItems,
             this.tiggerList = $tiggerList,
@@ -68,7 +67,6 @@
             this.preBtn = $preBtn,
             this.nextBtn = $nextBtn,
             this.imgsNum = $imgItems.length
-
             
         },
 
@@ -76,10 +74,8 @@
          * 设置第一幕随机
          */
         setIdxRandom : function(){
-
             if(this.options.indexRandom){
                 this.index = Math.floor(Math.random() * this.imgsNum );
-
             }
         },
 
@@ -88,7 +84,6 @@
          */
         lazyLoad : function(){
             var _this = this;
-
             if(_this.options.lazyLoad){
                 var lazyLoadAttr = _this.options.lazyLoadAttr;
                 var imgSrc1 = _this.imgItems.eq(_this.index).find('img').eq(0).attr(lazyLoadAttr);
@@ -111,7 +106,6 @@
                     var src = img.attr(_this.options.lazyLoadAttr);
                     img.attr('src',src);
                 }
-
                 if(imgNext.attr('src') == undefined){
                     var src = imgNext.attr(_this.options.lazyLoadAttr);
                     imgNext.attr('src',src);
@@ -158,7 +152,6 @@
             var elemsData = this;
             var options = this.options;
             if(_this.preBtn !== ''){
-
                _this.preBtn.hover(function(){
                     clearInterval(_this.timer);
                 },function(){
@@ -175,22 +168,18 @@
                     })
                 });
 
-
                 _this.preBtn.on('click', function(e) {
                     e.preventDefault();
-
                     if(_this.curIdx == 0){
                         _this.curIdx = _this.imgsNum - 1;
                     }else{
                         _this.curIdx -= 1;
                     }
-                    func2();
-                    
+                    func2();                  
                     _this.index = _this.curIdx;
                     _this._index = _this.index;
                     
                 });
-
 
                 _this.nextBtn.on('click', function(e) {
                     e.preventDefault();
@@ -245,7 +234,6 @@
 
                 _this.imgList.hover(function(e){
                     clearInterval(_this.timer);
-
                 },function(e){
                     _this.intervalFunc(function(){
                         func();
@@ -264,7 +252,6 @@
 
             _this.tiggerItems.on(_this.options.switchMode,function(e) {
                 _this.index = $(e.target).index();
-
                 if(e.type == 'click'){
                     clearInterval(_this.timer);
                     func();      
@@ -279,7 +266,6 @@
 
             });
 
-
         },
 
         /**
@@ -289,6 +275,7 @@
             var _this = this;
             var options = this.options;
             var elemsData = this;
+
             _this.autoPlay(function(){
                 _this.noEffect(_this.index);
             })
@@ -299,11 +286,9 @@
                 _this.noEffect(_this.curIdx);
             })
 
-
             _this.switchEvent(function(){
                 _this.noEffect(_this.index); 
             })
-
 
         },
 
@@ -314,7 +299,6 @@
             var _this = this;
             var elemsData = this;
             var options = this.options;
-
             _this._index  = _this.index;
 
             _this.autoPlay(function(){
@@ -327,7 +311,6 @@
             },function(){
                 _this.fade(_this.curIdx,_this._index);
             })
-
 
             _this.switchEvent(function(){
                 _this.fade(_this.index,_this._index); 
@@ -342,7 +325,6 @@
             var _this = this;
             var elemsData = this;
             var options = this.options;
-
 
             _this.autoPlay(function(){
 
@@ -360,7 +342,6 @@
                 _this.horizontal(_this.index); 
             })
 
-        
         },
 
         /**
@@ -370,6 +351,7 @@
             var _this = this;
             var options = this.options;
             var elemsData = this;
+
             _this.autoPlay(function(){
                 _this.vertical(_this.index);
             })
@@ -385,8 +367,6 @@
             _this.switchEvent(function(){
                 _this.vertical(_this.index); 
             })
-
-
          
         },
 
@@ -399,7 +379,6 @@
             var elemsData = this;
             _this.curIdx = index;
             _this.loadNextImg();
-
             _this.imgList.css({'top':- _this.imgHeight * index + 'px'});
             _this.tiggerItems.removeClass(_this.options.tiggerCurClass).eq(index).addClass(_this.options.tiggerCurClass);
 
@@ -412,7 +391,6 @@
             var _this = this;
             var options = this.options;
             var elemsData = this;
-
             if(index !== _index){
                 _this.curIdx = index;
                 _this.loadNextImg();
@@ -462,24 +440,15 @@
          * 初始化
          */ 
         init:function(){
-
             this.index = this.options.index;
-
             this.setElemsData();
-
             this.setIdxRandom();
-
             this.initStyle();
-
             this.lazyLoad();
-
             this.initDirection();
-
         },
 
     };
-
-
 
     $.fn.eslider = function (options) {
         return this.each(function () {
