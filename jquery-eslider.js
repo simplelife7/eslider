@@ -496,20 +496,20 @@
      * 插件的默认值
      */
     $.fn.eslider.defaults = {
-        imgWrap : '',
-        tiggerWrap :'',
-        autoPlay : false,
-        delay : 2000,
-        speed : 300,
-        index : 0,
-        switchMode : 'hover',
-        lazyLoad : false,
-        lazyLoadAttr : 'data-lazy',
-        indexRandom : false,
-        direction : 'none',
-        tiggerCurClass :'cur',
-        preBtn : '',
-        nextBtn : ''
+        imgWrap : '',  //图片容器，默认第一个ul
+        tiggerWrap :'', //切换点容器，默认第二个ul
+        autoPlay : true, //自动播放
+        delay : 2000, //每张图片切换的间隔事件
+        speed : 300, //切换动画的速度
+        index : 0, //首次加载第几张图，默认第一张
+        switchMode : 'hover', //切换模式：hover、click
+        lazyLoad : false, //是否预加载下一张图
+        lazyLoadAttr : 'data-lazy', //预加载图所在的属性
+        indexRandom : false, //首次是否随机加载
+        direction : 'none', //方向或效果:  none(无动画)、v(垂直方向滚动)、h(水平方向滚动)、fade(渐变)
+        tiggerCurClass :'cur', //切换按钮当前台的class
+        preBtn : '', //切换至前一张图的按钮
+        nextBtn : ''//切换至后一张图的按钮
     };
 
     $(function () {
